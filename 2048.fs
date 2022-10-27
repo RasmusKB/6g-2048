@@ -11,11 +11,11 @@ type state = piece list // the board is a set of randomly organized pieces
 
 let fromValue : v : value =
     match v with 
-    | Red = fromRgb()
-    | Green = fromRgb()
-    | Blue = fromRgb()
-    | Yellow = fromRgb()
-    | Black = fromRgb()
+    | Red = fromRgb(255,0,0)
+    | Green = fromRgb(0,255,0)
+    | Blue = fromRgb(0,0,255)
+    | Yellow = fromRgb(255,255,0)
+    | Black = fromRgb(0,0,0)
 
     
 
