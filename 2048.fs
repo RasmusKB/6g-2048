@@ -10,22 +10,23 @@ type state = piece list // the board is a set of randomly organized pieces
 // functions
 
 // laver match cases med value typen til canvas farver
-let fromValue : v : value =
-    match v with 
-    | Red = fromRgb(255,0,0)
-    | Green = fromRgb(0,255,0)
-    | Blue = fromRgb(0,0,255)
-    | Yellow = fromRgb(255,255,0)
-    | Black = fromRgb(0,0,0)
+let fromValue (v: value) : Canvas.color =
+    match v with
+        | Red -> red
+        | Green -> green
+        | Blue -> blue
+        | Yellow -> yellow
+        | Black -> black
 
 
-let nextColor : c : value =
-    match c with
-        | Red = fromRgb(0,255,0)
-        | Green = fromRgb(0,0,255)
-        | Blue = fromRgb(255,255,0)
-        | Yellow = fromRgb(0,0,0)
-        | Black = fromRgb(0,0,0)
+let nextColor (v: value) : Canvas.color =
+    match v with
+        | Red -> green
+        | Green -> blue
+        | Blue -> yellow
+        | Yellow -> black
+        | Black -> white
+
 
 let filter : k : int -> s : state -> state
 
