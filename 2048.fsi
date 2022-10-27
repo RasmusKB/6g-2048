@@ -15,6 +15,10 @@ type state = piece list // the board is a set of randomly organized pieces
 /// <returns>En canvas farve</returns>
 val fromValue : v : value -> Canvas.color
 
+
+/// <summary>Funktionen nextColor tager et input c af typen value og giver den næste value i rækkefølgen . Dvs. hvis value er Red bliver den nye value Green. Black giver bare black. </summary>
+/// <param c>Et input af typen value</param>
+/// <returns>Den næste value i rækkefølgen</returns>
 val nextColor : c : value -> value
 
 val filter : k : int -> s : state -> state
