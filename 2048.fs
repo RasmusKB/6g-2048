@@ -9,6 +9,7 @@ type state = piece list // the board is a set of randomly organized pieces
 
 // functions
 
+// laver match cases med value typen til canvas farver
 let fromValue : v : value =
     match v with 
     | Red = fromRgb(255,0,0)
@@ -17,7 +18,6 @@ let fromValue : v : value =
     | Yellow = fromRgb(255,255,0)
     | Black = fromRgb(0,0,0)
 
-    
 
 let nextColor : c : value -> value
 
