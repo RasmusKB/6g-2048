@@ -27,8 +27,9 @@ let nextColor (v: value) : Canvas.color =
         | Yellow -> black
         | Black -> white
 
+let filter (k: int) (s: state) : state =
+    List.filter (fun (elm,(x,y)) -> y=k) s
 
-let filter : k : int -> s : state -> state
 
 let shiftUp : s : state -> state
 
