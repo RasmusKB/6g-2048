@@ -19,13 +19,14 @@ let fromValue : v : value =
     | Black = fromRgb(0,0,0)
 
 
-let nextColor : c : value -> value
+let nextColor : c : value =
     match c with
         | Red = fromRgb(0,255,0)
         | Green = fromRgb(0,0,255)
         | Blue = fromRgb(255,255,0)
         | Yellow = fromRgb(0,0,0)
         | Black = fromRgb(0,0,0)
+
 let filter : k : int -> s : state -> state
 
 let shiftUp : s : state -> state
