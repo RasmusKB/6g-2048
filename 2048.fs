@@ -32,11 +32,34 @@ let filter (k: int) (s: state) : state =
 
 
 let shiftUp : s : state -> state
+MANGLER
 
-let flipUD : s : state -> state
+let flipHelp (p:piece) : piece =
+    match p with
+        |(elm,(0,y))-> (elm,(2,y))
+        |(elm,(1,y))-> (elm,(1,y))
+        |(elm,(2,y))-> (elm,(0,y))
+        |_ -> p
 
-let transpose : s : state -> state
+let flipUD (s:state) : state =
+    List.fold (fun acc p -> acc@[flipHelp p]) [] s
 
-let empty : s : state -> pos list
 
-let addRandom : c : value -> s : state -> state option
+let transpose (s:state) : state =
+    List.map (fun  (z,(x,y)) -> (z,(y,x))) s
+
+
+let empty (s:state) : pos list =
+    let posPos = [(0,0);(0,1);(0,2);(1,0);(1,1);(1,2);(2,0);(2,1);(2,2)]
+    let statePLst = List.map (fun (z,(x,y)) -> (x,y)) s
+    List.except statePLst posPos
+
+let addRandom (c:value) (s:state) : state option =
+    let poss = (empty s)
+    let rnd = System.Random()
+    let rnd1 = rnd.Next(poss.Length)
+    let v = List.item rnd1 poss
+    let nlst = s@[(c,v)]
+    printfn"%A" (c,v)
+    Some(nlst)
+
