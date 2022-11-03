@@ -34,10 +34,27 @@ val filter : k : int -> s : state -> state
 /// <returns>Den opdatereret state hvor pieces er flyttet 1 til venstre</returns>
 val shiftUp : s : state -> state
 
+
+/// <summary> </summary>
+/// <param s>  </param>
+/// <returns>  </returns>
 val flipUD : s : state -> state
 
+
+/// <summary> </summary>
+/// <param s>  </param>
+/// <returns>  </returns>
 val transpose : s : state -> state
 
+
+/// <summary>Empty laver en liste af tomme positioner på boardet </summary>
+/// <param s>Den nuværende state for boardet  </param>
+/// <returns>Returnerer en liste af tomme positioner.   </returns>
 val empty : s : state -> pos list
 
+
+/// <summary>>Tilføjer tilfældigt en ny piece med farven c på en tom plads på 2048 boardet </summary>
+/// <param c>Den farve den nye piece skal have </param>
+/// <param s>Den nuværende state for boardet </param>
+/// <returns>En ny state hvor der er blevet placeret en ny piece på boardet med farve c  </returns>
 val addRandom : c : value -> s : state -> state option
