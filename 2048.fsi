@@ -1,16 +1,15 @@
 // Signaturfil for 2048
-
+// Modul
 module Board
 
-// typer
+// Typer
 
 type pos = int * int // A 2 - dimensional vector in board - coordinats (not pixels )
 type value = Red | Green | Blue | Yellow | Black // piece values
 type piece = value * pos //
 type state = piece list // the board is a set of randomly organized pieces
 
-// værdier 
-
+// Funktioner & Værdier 
 
 /// <summary>Funktionen fromValue tager et input v af typen value som er en farve. Dette oversættes til en canvas farve. </summary>
 /// <param v>Farve der skal oversættes til canvas farve</param>
@@ -29,21 +28,22 @@ val nextColor : c : value -> value
 /// <returns>En liste af pieces på den valgte kolonne</returns>
 val filter : k : int -> s : state -> state
 
+
 /// <summary>Funktionen shiftUp flytter alle pieces på 2048 boardet 1 plads til venstre på x koordinatet </summary>
 /// <param s>Den nuværende state altså hvordan pieces er på boardet før funktion bruges</param>
 /// <returns>Den opdatereret state hvor pieces er flyttet 1 til venstre</returns>
 val shiftUp : s : state -> state
 
 
-/// <summary> </summary>
-/// <param s>  </param>
-/// <returns>  </returns>
+/// <summary>Funktionen flipUD "flipper" det nuværende board s så (i,j) bliver til (2-i,) for alle pieces på boardet  </summary>
+/// <param s>Den nuværende state for boardet  </param>
+/// <returns>Den nye state for boardet hvor flipUD er brugt  </returns>
 val flipUD : s : state -> state
 
 
-/// <summary> </summary>
-/// <param s>  </param>
-/// <returns>  </returns>
+/// <summary>Funktionen transpose transponerer alle pieces på det nuværende board s så (i,j) bliver til (j,i) </summary>
+/// <param s>Den nuværende state for boardet  </param>
+/// <returns>Den nye state for boardet hvor transpose er brugt  </returns>
 val transpose : s : state -> state
 
 
