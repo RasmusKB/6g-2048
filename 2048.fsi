@@ -1,3 +1,5 @@
+// Signaturfil for 2048
+
 module Board
 
 // typer
@@ -21,8 +23,15 @@ val fromValue : v : value -> Canvas.color
 /// <returns>Den næste value i rækkefølgen</returns>
 val nextColor : c : value -> value
 
+
+/// <summary>Funktionen filter tager et input k som er en kolonne og returnerer en liste af typen pieces på den kolonne. </summary>
+/// <param k>Den kolonne der skal returneres en pieces liste på </param>
+/// <returns>En liste af pieces på den valgte kolonne</returns>
 val filter : k : int -> s : state -> state
 
+/// <summary>Funktionen shiftUp flytter alle pieces på 2048 boardet 1 plads til venstre på x koordinatet </summary>
+/// <param s>Den nuværende state altså hvordan pieces er på boardet før funktion bruges</param>
+/// <returns>Den opdatereret state hvor pieces er flyttet 1 til venstre</returns>
 val shiftUp : s : state -> state
 
 val flipUD : s : state -> state
