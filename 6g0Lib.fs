@@ -79,35 +79,21 @@ let draw (w:int) (h:int) (s:state) : canvas =
     C
 
 
-let isValid (s:state) (k:int) : state option =
-    let sUp = s|>shiftUp
-    let sDown = s|>flipUD|>shiftUp|>flipUD
-    let sLeft = s|>transpose|>shiftUp|>transpose
-    let sRight = s|>transpose|>flipUD|>shiftUp|>flipUD|>transpose
+let react (s:state) (k:key) : state option =
     let key =
-        match k with
-            |1 -> sUp
-            |2 -> sDown
-            |3 -> sLeft
-            |4 -> sRight
+        match getKey k with
+            |UpArrow -> s|>shiftUp
+            |DownArrow -> s|>flipUD|>shiftUp|>flipUD
+            |LeftArrow -> s|>transpose|>shiftUp|>transpose
+            |RightArrow -> s|>transpose|>flipUD|>shiftUp|>flipUD|>transpose
             |_ -> []
-    let except = key|>List.except (s)
+    let stateSLst = List.map (fun (z,(x,y)) -> (x,y)) s
+    let stateKLst = List.map (fun (z,(x,y)) -> (x,y)) key
+    let except = List.except stateKLst stateSLst
     match except.Length with
         |0 -> Some(s)
         |_ -> key|> addRandom Red
 
-
-let react (s:state) (k: key) : state option =
-    match getKey k with
-        |UpArrow ->
-            isValid s 1
-        |DownArrow ->
-            isValid s 2
-        |LeftArrow ->
-            isValid s 3
-        |RightArrow ->
-            isValid s 4
-        |_ -> None
 
 
 let toState (s:state option) : state =
