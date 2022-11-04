@@ -64,18 +64,11 @@ val addRandom : c: value -> s: state -> state option
 val draw : w: int -> h: int -> s: state -> canvas
 
 
-/// <summary>Tjekker om et move er gyldigt </summary>
+/// <summary>Tjekker om et move er gyldigt og flytter brikkerne </summary>
 /// <param s>Nuværende state for boardet </summary>
 /// <param k>En int repræsenterende hvilken knap der er blevet trykket </param>
-/// <returns>En ændret state som en option, hvis det er et gyldigt move, eller en uændret hvis det er ugyldigt <returns>
-val isValid : s: state -> k: int -> state option
-
-
-/// <summary>Tjekker om et move er gyldigt </summary>
-/// <param s>Nuværende state for boardet </param>
-/// <param k>Den tast der bliver trykket </param>
-/// <returns> Det nye state til boardet der bliver tegnet </returns>
-val react : s: state -> k: key -> state option
+/// <returns>En state med skubbede brikker som en option, hvis det er et gyldigt move, eller en uændret hvis det er ugyldigt <returns>
+val react : s: state -> k: int -> state option
 
 
 /// <summary>Konvertere en state option til en state </summary>
